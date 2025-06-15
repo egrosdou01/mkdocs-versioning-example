@@ -23,4 +23,4 @@ jobs:
           git config --global user.name "Example Docu Deploy"
           git config --global user.email "docs.deploy@eleni.dev"
       - name: Build Docs Website
-        run: mike deploy --push --update-aliases ${{ github.event.release.tag_name }} latest
+        run: mike deploy --push --update-aliases ${{ github.event.release.tag_name }}
