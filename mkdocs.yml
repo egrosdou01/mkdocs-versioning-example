@@ -9,6 +9,7 @@ theme:
   name: material
   custom_dir: overrides
 extra:
+  site_base: "https://egrosdou01.github.io/mkdocs-versioning-example/"
   version:
     provider: mike
     alias: true
