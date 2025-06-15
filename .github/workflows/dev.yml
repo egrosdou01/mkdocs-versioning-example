@@ -22,4 +22,4 @@ jobs:
           git config --global user.name "Example Docu Deploy"
           git config --global user.email "docs.deploy@eleni.dev"
       - name: Build Docs Website
-        run: mike deploy --push dev
+        run: mike deploy --push --force dev
