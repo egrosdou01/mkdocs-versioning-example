@@ -1,0 +1,8 @@
+site_name: Mkdocs Versioning Example
+site_url: https://egrosdou01.github.io/mkdocs-versioning-example/
+theme:
+  name: material
+extra:
+  version:
+    provider: mike
+    alias: true
