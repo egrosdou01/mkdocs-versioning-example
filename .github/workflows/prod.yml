@@ -16,6 +16,5 @@ jobs:
         run: |
           pip install mkdocs-material
           pip install mike
-
       - name: Build Docs Website
         run: mike deploy --push --update-aliases ${{ github.event.release.tag_name }} latest
