@@ -1,5 +1,10 @@
 site_name: Mkdocs Versioning Example
 site_url: https://egrosdou01.github.io/mkdocs-versioning-example/
+
+repo_name: egrosdou01/mkdocs-versioning-example
+repo_url: https://github.com/egrosdou01/mkdocs-versioning-example
+edit_uri: ""
+
 theme:
   name: material
 extra:
