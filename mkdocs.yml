@@ -8,3 +8,6 @@ extra:
     alias: true
     default:
       - latest
+plugins:
+  - search
+  - mike
