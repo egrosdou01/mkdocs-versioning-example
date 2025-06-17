@@ -25,5 +25,5 @@ jobs:
           git config --global user.email "docs.deploy@eleni.dev"
       - name: Build Docs Website
         run: |
-          mike deploy --push dev
-          mike set-default dev
+          mike deploy --push --update-aliases main
+          mike set-default main
