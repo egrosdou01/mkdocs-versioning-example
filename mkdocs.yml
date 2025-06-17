@@ -13,7 +13,7 @@ extra:
     provider: mike
     alias: true
     default:
-      - latest
+      - main
 plugins:
   - search
   - mike
