@@ -27,4 +27,3 @@ jobs:
         run: |
           mike deploy --push --update-aliases main
           mike set-default main
-          mike push
