@@ -12,8 +12,8 @@ extra:
   version:
     provider: mike
     alias: true
-    # default:
-    #   - main
+    default:
+      - latest
 plugins:
   - search
   - mike
