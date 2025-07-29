@@ -16,5 +16,5 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
 ## Test docu
-Update again the file for testing - 0...
-TEST TEST TEST TEST
+Update again the file for testing
+Viewing v0.0.3

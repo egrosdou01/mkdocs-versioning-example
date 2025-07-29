@@ -17,3 +17,6 @@ extra:
 plugins:
   - search
   - mike
+nav:
+- Home: 'index.md'
+- Archive: 'archive.md'

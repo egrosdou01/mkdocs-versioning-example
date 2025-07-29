@@ -24,3 +24,24 @@ jobs:
           git config --global user.email "docs.deploy@eleni.dev"
       - name: Build Docs Website
         run: mike deploy --push --update-aliases ${{ github.event.release.tag_name }} latest
+      - name: Hide Older Releases
+        run: |
+          VISIBLE_RELEASES=2
+          # Exclude main. Display only versions starting with v
+          all_releases=$(mike list --json | \
+                                 jq -r '.[].version' | \
+                                 grep -E '^v?[0-9]+\.[0-9]+\.[0-9]+(\-.*)?$' | \
+                                 sort -rV)
+
+          releases_array=($all_releases)
+          num_releases=${#releases_array[@]}
+
+          if (( num_releases > VISIBLE_RELEASES )); then
+            for (( i=VISIBLE_RELEASES; i<num_releases; i++ )); do
+              hide_version=${releases_array=[i]}
+              echo "Hiding release version: $hide_version"
+              mike set --set-bool hidden=true "$hide_version" --push
+            done
+          else
+            echo "No release versions to hide. Exit"
+          fi
