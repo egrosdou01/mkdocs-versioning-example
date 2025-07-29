@@ -31,7 +31,7 @@ jobs:
           all_releases=$(mike list --json | \
                                  jq -r '.[].version' | \
                                  grep -E '^v?[0-9]+\.[0-9]+\.[0-9]+(\-.*)?$' | \
-                                 sort -rV)
+                                 sort -V)
 
           releases_array=($all_releases)
           num_releases=${#releases_array[@]}
@@ -40,7 +40,7 @@ jobs:
             for (( i=VISIBLE_RELEASES; i<num_releases; i++ )); do
               hide_version=${releases_array=[i]}
               echo "Hiding release version: $hide_version"
-              mike set --set-bool hidden=true "$hide_version" --push
+              mike props --set hidden=true "$hide_version" --push 
             done
           else
             echo "No release versions to hide. Exit"
