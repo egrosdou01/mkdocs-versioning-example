@@ -29,7 +29,7 @@ jobs:
           VISIBLE_RELEASES=2
           # Exclude main. Display only versions starting with v
           all_releases=$(mike list --json | \
-                                 jq -r '.[].version' | \
+                                 jq -r '.[] | select(.properties.hidden | not) | .version' | \
                                  grep -E '^v?[0-9]+\.[0-9]+\.[0-9]+(\-.*)?$' | \
                                  sort -V)
 
