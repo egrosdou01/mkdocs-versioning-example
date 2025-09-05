@@ -19,7 +19,10 @@
   {
     "version": "v0.0.2",
     "title": "v0.0.2",
-    "aliases": []
+    "aliases": [],
+    "properties": {
+      "hidden": true
+    }
   },
   {
     "version": "v0.0.1",
