@@ -37,7 +37,9 @@ jobs:
           num_releases=${#releases_array[@]}
 
           if (( num_releases > VISIBLE_RELEASES )); then
-            for (( i=VISIBLE_RELEASES; i<num_releases; i++ )); do
+            hide=$((num_releases - VISIBLE_RELEASES))
+            echo "We have to hide ${hide} versions"
+            for (( i=VISIBLE_RELEASES; i<hide; i++ )); do
               hide_version=${releases_array=[i]}
               echo "Hiding release version: $hide_version"
               mike props --set hidden=true "$hide_version" --push 
