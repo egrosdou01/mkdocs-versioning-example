@@ -32,9 +32,12 @@ jobs:
                                  jq -r '.[] | select(.properties.hidden | not) | .version' | \
                                  grep -E '^v?[0-9]+\.[0-9]+\.[0-9]+(\-.*)?$' | \
                                  sort -V)
+          echo "$all_releases"
 
           releases_array=($all_releases)
           num_releases=${#releases_array[@]}
+
+          echo "Found ${num_releases} visible releases: ${releases_array[@]}"
 
           if (( num_releases > VISIBLE_RELEASES )); then
             hide=$((num_releases - VISIBLE_RELEASES))
