@@ -1,32 +1,20 @@
 /*
- * When the copy button is clicked, the script temporary modifies the displayed text.
- * The leading characters '$' or '$ ' are removed from the code snippets.
- * After 10ms delay, the original text is restored.
+ * Override Material's copy button to remove leading '$' from code snippets.
  */
 
-document$.subscribe(function() {
+document$.subscribe(() => {
+  document.querySelectorAll('.md-clipboard').forEach(button => {
+    button.replaceWith(button.cloneNode(true));
+  });
 
-  const copyButton = document.querySelectorAll('.md-clipboard');
+  document.querySelectorAll('.md-clipboard').forEach(button => {
+    button.addEventListener('click', async event => {
+      const code = button.closest('.highlight')?.querySelector('code');
+      if (!code) return;
 
-  copyButton.forEach(function(button) {
-
-    const codeElement = button.closest('.highlight, pre').querySelector('code');
-
-    if (codeElement) {
-
-      let actualText = codeElement.textContent;
-
-      button.addEventListener('click', function() {
-
-        const modifiedText = actualText.replace(/^((\$)\s*)/gm, '');
-
-        codeElement.textContent = modifiedText;
-
-        setTimeout(() => {
-          codeElement.textContent = actualText;
-        }, 10);
-
-      });
-    }
+      const textToCopy = code.textContent.replace(/^((\$)\s*)/gm, '');
+      await navigator.clipboard.writeText(textToCopy);
+      event.stopImmediatePropagation();
+    });
   });
 });
