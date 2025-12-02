@@ -22,5 +22,5 @@ TEST TEST TEST TEST
 ## Add Code Example
 
 ```bash
-$ echo "Hello"
+$ echo "Hello, main"
 ```
