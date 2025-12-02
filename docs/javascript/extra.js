@@ -1,26 +1,21 @@
 /*
- * When the copy button is clicked, this script temporarily modifies
- * the displayed text to remove leading '$' characters from code snippets.
- * The modification is applied at click time to ensure compatibility
- * with Material’s instant-loading main site, then restored after 10ms.
+ * When the copy button is clicked, this script copies the code
+ * with leading '$' characters removed, ensuring it works
+ * on both versioned builds and the main branch with instant loading.
  */
 
 document$.subscribe(() => {
-  const buttons = document.querySelectorAll('.md-clipboard');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
+  document.querySelectorAll('.md-clipboard').forEach(button => {
+    button.addEventListener('click', async (event) => {
       const code = button.closest('.highlight')?.querySelector('code');
       if (!code) return;
 
-      const original = code.textContent;
-      const modified = original.replace(/^((\$)\s*)/gm, '');
+      const textToCopy = code.textContent.replace(/^((\$)\s*)/gm, '');
 
-      code.textContent = modified;
+      await navigator.clipboard.writeText(textToCopy);
 
-      setTimeout(() => {
-        code.textContent = original;
-      }, 10);
+      event.stopImmediatePropagation();
     });
   });
 });
+
