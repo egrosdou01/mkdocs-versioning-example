@@ -5,9 +5,44 @@ repo_name: egrosdou01/mkdocs-versioning-example
 repo_url: https://github.com/egrosdou01/mkdocs-versioning-example
 edit_uri: ""
 
+markdown_extensions:
+- admonition
+- pymdownx.details
+- pymdownx.superfences
+- attr_list
+- md_in_html
+- footnotes
+- pymdownx.critic
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+- pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
 theme:
   name: material
   custom_dir: overrides
+  features:
+  - content.code.copy
+  - search.share
+  - navigation.footer
+  - navigation.instant.progress
+  - content.code.annotate
+
+extra_javascript:
+  - javascript/extra.js
+
 extra:
   version:
     provider: mike

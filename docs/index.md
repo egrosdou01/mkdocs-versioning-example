@@ -18,3 +18,9 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 ## Test docu
 Update again the file for testing - 0...
 TEST TEST TEST TEST
+
+## Add Code Example
+
+```bash
+$ echo "Hello"
+```
