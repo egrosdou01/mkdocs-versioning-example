@@ -13,9 +13,7 @@ document$.subscribe(() => {
       const textToCopy = code.textContent.replace(/^((\$)\s*)/gm, '');
 
       await navigator.clipboard.writeText(textToCopy);
-
       event.stopImmediatePropagation();
     });
   });
 });
-
