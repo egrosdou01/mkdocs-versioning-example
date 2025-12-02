@@ -5,15 +5,13 @@
  */
 
 document$.subscribe(() => {
-  document.querySelectorAll('.md-clipboard').forEach(button => {
-    button.addEventListener('click', async (event) => {
-      const code = button.closest('.highlight')?.querySelector('code');
-      if (!code) return;
+  document.addEventListener('copy', e => {
+    const code = e.target.closest('code');
+    if (!code) return;
 
-      const textToCopy = code.textContent.replace(/^((\$)\s*)/gm, '');
-
-      await navigator.clipboard.writeText(textToCopy);
-      event.stopImmediatePropagation();
-    });
+    // Replace copied text
+    const textToCopy = code.textContent.replace(/^((\$)\s*)/gm, '');
+    e.clipboardData.setData('text/plain', textToCopy);
+    e.preventDefault(); // prevent default copy
   });
 });
