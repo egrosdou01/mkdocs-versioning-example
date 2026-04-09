@@ -8,7 +8,11 @@ edit_uri: ""
 markdown_extensions:
 - admonition
 - pymdownx.details
-- pymdownx.superfences
+- pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format ""
 - attr_list
 - md_in_html
 - footnotes
@@ -17,21 +21,14 @@ markdown_extensions:
     anchor_linenums: true
     line_spans: __span
     pygments_lang_class: true
-- pymdownx.superfences:
-    custom_fences:
-    - name: mermaid
-      class: mermaid
-      format: !!python/name:pymdownx.superfences.fence_code_format
 - pymdownx.tabbed:
     alternate_style: true
 - pymdownx.inlinehilite
 - pymdownx.snippets
 - pymdownx.emoji:
-    emoji_index: !!python/name:material.extensions.emoji.twemoji
-    emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
+    emoji_index: !!python/name:zensical.extensions.emoji.twemoji ""
+    emoji_generator: !!python/name:zensical.extensions.emoji.to_svg ""
 theme:
-  name: material
   custom_dir: overrides
   features:
   - content.code.copy
@@ -39,16 +36,22 @@ theme:
   - navigation.footer
   - navigation.instant.progress
   - content.code.annotate
-
+  palette:
+  - scheme: default
+    toggle:
+      icon: lucide/sun
+      name: Switch to dark mode
+  - scheme: slate
+    toggle:
+      icon: lucide/moon
+      name: Switch to light mode
 extra_javascript:
-  - javascript/extra.js
-
+- javascript/extra.js
 extra:
   version:
     provider: mike
     alias: true
     default:
-      - dev
+    - dev
 plugins:
-  - search
-  - mike
+- search
