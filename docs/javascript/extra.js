@@ -45,8 +45,4 @@
       console.debug('[extra.js] layer 3 (copy event) intercepted');
     }
   });
-
-  console.log('[extra.js] dollar-strip patch loaded. Layers active: ' +
-    (typeof Clipboard !== 'undefined' ? '1 ' : '') +
-    (navigator.clipboard ? '2 ' : '') + '3');
 }());
