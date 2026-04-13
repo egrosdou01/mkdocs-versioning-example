@@ -30,6 +30,11 @@ $ pip install -r requirements.txt
 
 ### Local Access
 
-To access the static page, execute ```mike serve```. The website will be available at ```http://localhost:8000```.
+```bash
+$ zensical build --clean
+$ zensical serve
+```
+
+The website will be available at ```http://localhost:8000```.
 
 For a detailed walkthrough and additional context, refer to the [blog post](https://blog.grosdouli.dev/blog/mkdocs-mike-integration).
