@@ -1,2 +1,2 @@
-mkdocs-material
-mike
+zensical==0.0.32
+git+https://github.com/squidfunk/mike.git
