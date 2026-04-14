@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 
 {% block outdated %}
-  You are viewing the DEV documentation.
-  <a href="https://egrosdou01.github.io/mkdocs-versioning-example/latest/">
-    <strong>Click here to go to latest.</strong>
-  </a>
+  <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+    <span>You're viewing the main documentation.</span>
+    
+    <a href="https://egrosdou01.github.io/mkdocs-versioning-example/latest/" 
+       style="background-color: #0066cc; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; display: inline-block;">
+      View Latest Version
+    </a>
+    
+    <a href="https://egrosdou01.github.io/mkdocs-versioning-example/latest/" 
+       style="background-color: #f0f0f0; color: #333; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; display: inline-block; border: 1px solid #ccc;">
+      All Versions
+    </a>
+  </div>
 {% endblock %}
